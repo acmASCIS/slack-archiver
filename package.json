@@ -1,0 +1,11 @@
+{
+  "name": "slack-archiver",
+  "version": "1.0.0",
+  "description": "A tool to archive slack messages.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chantal Chawki (chantal.chawki@gmail.com)",
+  "license": "MIT"
+}
