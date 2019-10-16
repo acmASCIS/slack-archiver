@@ -4,7 +4,8 @@
   "description": "A tool to archive slack messages.",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node src/index.ts",
+    "start": "node build/index.js",
+    "start:dev": "ts-node src/index.ts",
     "build": "tsc"
   },
   "author": "Chantal Chawki (chantal.chawki@gmail.com)",
