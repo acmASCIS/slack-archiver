@@ -67,7 +67,7 @@ async function save() {
   });
 }
 
-cron.schedule('0 55 18 * * *', () => {
+cron.schedule('0 05 19 * * *', () => {
   console.log('Cron job is running');
   save();
 });
