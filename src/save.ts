@@ -3,7 +3,7 @@ import { archive } from './archive';
 
 export async function save() {
   const channels = (await archive()) as any[];
-  channels.forEach(async channel => {
+  const promises = channels.map(async channel => {
     let dbChannel: any = await Channel.findOne({ id: channel.id });
     if (!dbChannel) {
       Channel.create(channel);
@@ -25,4 +25,6 @@ export async function save() {
       );
     }
   });
+
+  await Promise.all(promises);
 }
