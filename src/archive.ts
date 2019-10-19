@@ -1,5 +1,4 @@
 import { WebClient } from '@slack/web-api';
-import { inspect } from 'util';
 
 export async function archive() {
   const client = new WebClient(process.env.SLACK_TOKEN);
