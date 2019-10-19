@@ -60,7 +60,7 @@ async function save() {
   });
 }
 
-cron.schedule('0 * * * * *', () => {
+cron.schedule('0 0 0 * * *', () => {
   console.log('Cron job is running');
   save();
 });
