@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node build/index.js",
     "start:dev": "ts-node src/index.ts",
+    "postinstall": "npm run build",
     "build": "tsc"
   },
   "author": "Chantal Chawki (chantal.chawki@gmail.com)",
