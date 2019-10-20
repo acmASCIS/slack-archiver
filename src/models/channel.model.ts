@@ -1,4 +1,7 @@
 import mongoose from 'mongoose';
+import { IChannel } from '../interfaces';
+
+type ChannelDocument = IChannel & mongoose.Document;
 
 const messageSchema = new mongoose.Schema(
   {
@@ -20,4 +23,7 @@ const channelSchema = new mongoose.Schema(
   { strict: false },
 );
 
-export const Channel = mongoose.model('Channel', channelSchema);
+export const Channel = mongoose.model<ChannelDocument>(
+  'Channel',
+  channelSchema,
+);

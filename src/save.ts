@@ -1,10 +1,10 @@
-import { Channel } from './channel.model';
+import { Channel } from './models/channel.model';
 import { archive } from './archive';
 
 export async function save() {
-  const channels = (await archive()) as any[];
+  const channels = await archive();
   const promises = channels.map(async channel => {
-    let dbChannel: any = await Channel.findOne({ id: channel.id });
+    let dbChannel = await Channel.findOne({ id: channel.id });
     if (!dbChannel) {
       Channel.create(channel);
     } else {
