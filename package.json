@@ -4,10 +4,10 @@
   "description": "A tool to archive slack messages.",
   "main": "index.js",
   "scripts": {
-    "start-save": "node build/run-save.js",
     "start": "node build/index.js",
     "start:dev": "ts-node src/index.ts",
     "postinstall": "npm run build",
+    "start-save": "scripts/run-save.js",
     "build": "tsc"
   },
   "author": "Chantal Chawki (chantal.chawki@gmail.com)",

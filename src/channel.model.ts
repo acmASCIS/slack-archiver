@@ -8,6 +8,7 @@ const messageSchema = new mongoose.Schema(
   },
   { strict: false, _id: false },
 );
+
 const channelSchema = new mongoose.Schema(
   {
     id: {
