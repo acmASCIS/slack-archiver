@@ -1,9 +1,10 @@
 import { WebClient } from '@slack/web-api';
-import { IChannel, IMessage, IReply } from './interfaces';
+import { IChannel, IMessage, IReply, IUser } from './interfaces';
 
 export async function archive() {
   const client = new WebClient(process.env.SLACK_TOKEN);
   const channels: IChannel[] = await getChannels(client);
+  const users = await getUsers(client);
 
   for (const channel of channels) {
     channel.messages = [];
@@ -25,7 +26,7 @@ export async function archive() {
     }
   }
 
-  return channels;
+  return { channels, users };
 }
 
 async function getChannels(client: WebClient): Promise<IChannel[]> {
@@ -34,4 +35,10 @@ async function getChannels(client: WebClient): Promise<IChannel[]> {
   });
 
   return channels as IChannel[];
+}
+
+async function getUsers(client: WebClient): Promise<IUser[]> {
+  const { members } = await client.users.list();
+
+  return members as IUser[];
 }
