@@ -18,5 +18,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'no-restricted-syntax': 'off',
     'no-await-in-loop': 'off',
+    'no-param-reassign': 'off',
+    camelcase: 'off',
   },
 };
