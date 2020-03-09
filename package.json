@@ -23,7 +23,7 @@
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
     "ts-node": "^8.4.1",
-    "typescript": "^3.6.4"
+    "typescript": "^3.8.3"
   },
   "dependencies": {
     "@slack/web-api": "^5.2.1",
