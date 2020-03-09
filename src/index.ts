@@ -32,15 +32,19 @@ app.get('/backup/:channel', async (req: any, res: any) => {
   const users = await User.find({});
 
   const messages = channel?.messages.map((msg: IMessage) => {
-    const replies = msg.replies.map((reply: IReply) => ({
+    msg = (msg as any)._doc;
+
+    const replies = msg.replies?.map((reply: IReply) => ({
       text: injectUser(reply.text, users),
-      ts: reply.ts,
+      ts: new Date(parseInt(reply.ts) * 1000).toLocaleString(),
+      user: reply.user ? users.find(u => u.id === reply.user)?.name : undefined,
     }));
 
     return {
       text: injectUser(msg.text, users),
-      ts: msg.ts,
+      ts: new Date(parseInt(msg.ts) * 1000).toLocaleString(),
       replies,
+      user: msg.user ? users.find(u => u.id === msg.user)?.name : undefined,
     };
   });
 
